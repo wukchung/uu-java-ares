@@ -16,7 +16,7 @@ public class AresClientTest {
 
  @Test
     public void testFetchDataValidId() throws IOException, InterruptedException, AresClientException {
-        String validId = "21051861"; // Replace with a valid ID for testing
+        String validId = "21051861";
         String result = AresClient.fetchData(validId);
         assertNotNull(result, "The fetched data should not be null");
         System.out.println(result);
@@ -24,7 +24,7 @@ public class AresClientTest {
 
     @Test
     public void testFetchDataInvalidId() {
-        String invalidId = "00000000"; // Invalid ID for testing
+        String invalidId = "00000000";
         Exception exception = assertThrows(AresClientNotFoundException.class, () -> {
             AresClient.fetchData(invalidId);
         });
