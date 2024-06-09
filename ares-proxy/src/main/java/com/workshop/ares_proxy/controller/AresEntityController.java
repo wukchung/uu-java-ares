@@ -1,4 +1,3 @@
-// HelloWorldController.java
 package com.workshop.ares_proxy.controller;
 
 import com.workshop.ares.AresClient;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -77,6 +77,13 @@ public class AresEntityController {
     	}
     	
     	return "{\"message\": \"Nothing to delete.\"}";
+    }
+    
+    
+    @GetMapping(value = "/ares/search", consumes = "application/json", produces = "application/json")
+    public List<AresEntity> search(@RequestBody AresSearchRequest request) {
+    	List<AresEntity> entities = aresEntityRepository.searchByJsonData(request.getSearch());
+    	return entities;
     }
     
     
