@@ -1,5 +1,6 @@
 package com.workshop.ares_proxy.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,7 +14,8 @@ public class AresEntity {
     private Long id;
     
     private String ico;
-
+    
+    @Column(columnDefinition = "TEXT")
     private String json_data;
 
     public AresEntity() {
