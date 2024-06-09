@@ -29,7 +29,7 @@ public class ScheduledTasks {
         aresEntityRepository.saveAll(entities);
     }
     
-    @Scheduled(cron = "0 * * * * ?")
+    @Scheduled(cron = "0 0 * * * ?")
     public void cronTask() {
     	performCustomActionOnAllEntities();
         System.out.println("Cron task - " + System.currentTimeMillis() / 1000);
